@@ -41,6 +41,9 @@ class _MaelezoScreenState extends State<MaelezoScreen>
       padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 12),
       child: ListView(
         children: [
+          SizedBox(
+            height: 5,
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -57,10 +60,25 @@ class _MaelezoScreenState extends State<MaelezoScreen>
                   )
                 ],
               ),
-              const Icon(Icons.message)
+              SizedBox(
+                height: 55,
+                width: 55,
+                child: Neumorphic(
+                    style: NeumorphicStyle(
+                        shape: NeumorphicShape.convex,
+                        boxShape: NeumorphicBoxShape.roundRect(
+                            BorderRadius.circular(20)),
+                        depth: 4,
+                        intensity: 0.75,
+                        lightSource: LightSource.topLeft,
+                        color: Color.fromRGBO(255, 255, 255, 0.303)),
+                    child: const Icon(
+                      Icons.message_outlined,
+                    )),
+              )
             ],
           ),
-          const SizedBox(height: 10),
+          const SizedBox(height: 18),
           TabsSection(
               controller: _tabController,
               firstab: 'AKAUNTI',
@@ -115,10 +133,10 @@ class _MaelezoScreenState extends State<MaelezoScreen>
                               shape: NeumorphicShape.convex,
                               boxShape: NeumorphicBoxShape.roundRect(
                                   BorderRadius.circular(20)),
-                              depth: 8,
+                              depth: 5,
                               // intensity: 0.,
                               lightSource: LightSource.topLeft,
-                              color: Colors.white),
+                              color: Color.fromRGBO(255, 255, 255, 0.303)),
                           child: Icon(Icons.spa_rounded)),
                     ),
                     SizedBox(height: 8),
