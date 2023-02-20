@@ -1,6 +1,8 @@
+import 'package:crdb_simbanking/data/data.dart';
 import 'package:crdb_simbanking/widgets/circle_shape.dart';
 import 'package:crdb_simbanking/widgets/tabs_section.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
 class MaelezoScreen extends StatefulWidget {
   const MaelezoScreen({super.key});
@@ -44,23 +46,21 @@ class _MaelezoScreenState extends State<MaelezoScreen>
             children: [
               Row(
                 children: [
-                  CircleAvatar(radius: 20, child: Icon(Icons.person)),
-                  SizedBox(
-                    width: 10,
-                  ),
+                  const CircleAvatar(radius: 20, child: Icon(Icons.person)),
+                  const SizedBox(width: 10),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
+                    children: const [
                       Text("Habar Za mchana"),
                       Text("Ndugu Mteja"),
                     ],
                   )
                 ],
               ),
-              Icon(Icons.message)
+              const Icon(Icons.message)
             ],
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           TabsSection(
               controller: _tabController,
               firstab: 'AKAUNTI',
@@ -68,11 +68,11 @@ class _MaelezoScreenState extends State<MaelezoScreen>
               thirdtab: 'MIKOPO'),
           const SizedBox(height: 20),
           SizedBox(
-            height: 500,
+            height: 260,
             child: PageView(
               physics: const NeverScrollableScrollPhysics(),
               controller: _pageController,
-              children: [
+              children: const [
                 CheckBalance(
                   children: [
                     Text("Hello"),
@@ -94,6 +94,42 @@ class _MaelezoScreenState extends State<MaelezoScreen>
               ],
             ),
           ),
+          GridView.builder(
+              itemCount: akaunt.length,
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  mainAxisSpacing: 0,
+                  crossAxisSpacing: 0,
+                  mainAxisExtent: 120,
+                  crossAxisCount: 4),
+              shrinkWrap: true,
+              physics: const ScrollPhysics(),
+              itemBuilder: ((context, index) {
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    SizedBox(
+                      height: 75,
+                      width: 75,
+                      child: Neumorphic(
+                          style: NeumorphicStyle(
+                              shape: NeumorphicShape.convex,
+                              boxShape: NeumorphicBoxShape.roundRect(
+                                  BorderRadius.circular(20)),
+                              depth: 8,
+                              // intensity: 0.,
+                              lightSource: LightSource.topLeft,
+                              color: Colors.white),
+                          child: Icon(Icons.spa_rounded)),
+                    ),
+                    SizedBox(height: 8),
+                    Text(
+                      akaunt[index]['name'],
+                      textAlign: TextAlign.center,
+                      softWrap: true,
+                    )
+                  ],
+                );
+              }))
         ],
       ),
     );

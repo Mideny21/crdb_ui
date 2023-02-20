@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'dart:math' as math;
 
 class CheckBalance extends StatelessWidget {
   final List<Widget> children;
@@ -10,7 +9,7 @@ class CheckBalance extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: SizedBox(
-        height: 300,
+        height: 60,
         width: 300,
         child: CustomPaint(
           painter: CirclePainter(),

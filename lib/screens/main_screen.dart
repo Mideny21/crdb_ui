@@ -32,7 +32,7 @@ class _MainsScreenState extends State<MainsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey.shade300,
+      backgroundColor: Colors.white70.withOpacity(0.8),
       body: IndexedStack(index: _selectedIndex, children: pages),
       bottomNavigationBar: BottomNavigationBar(
         items: <BottomNavigationBarItem>[
@@ -60,12 +60,13 @@ class _MainsScreenState extends State<MainsScreen> {
         currentIndex: _selectedIndex, //New
         onTap: _onItemTapped,
         iconSize: 35,
+        elevation: 0,
         selectedFontSize: 15.0,
         unselectedFontSize: 15.0,
         showSelectedLabels: true,
         showUnselectedLabels: true,
         unselectedLabelStyle: const TextStyle(color: Colors.white),
-        backgroundColor: Colors.grey.shade300,
+        backgroundColor: Colors.transparent,
         selectedIconTheme: const IconThemeData(color: Colors.green),
         type: BottomNavigationBarType.fixed,
         selectedItemColor: Colors.green,

@@ -27,7 +27,21 @@ class TabsSection extends StatelessWidget {
         child: TabBar(
           controller: controller,
           indicator: BoxDecoration(
-              borderRadius: BorderRadius.circular(25), color: Colors.green),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.green.withOpacity(0.2),
+                  offset: Offset(-5.0, -5.0),
+                  blurRadius: 16.0,
+                ),
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.2),
+                  offset: Offset(5.0, 5.0),
+                  blurRadius: 16.0,
+                ),
+              ],
+              // color: Color(0xFFEFEEEE),
+              borderRadius: BorderRadius.circular(25),
+              color: Colors.green),
           labelColor: Colors.white,
           labelStyle: TextStyle(
               fontWeight: FontWeight.bold, letterSpacing: 0.5, fontSize: 15),
