@@ -161,10 +161,10 @@ class ServiceCard extends StatelessWidget {
                         depth: 5,
                         // intensity: 0.,
                         lightSource: LightSource.topLeft,
-                        color: const Color.fromRGBO(255, 255, 255, 0.303)),
+                        color: Colors.white),
                     child: itemslistIcon![index]),
               ),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               Text(itemslistName![index],
                   textAlign: TextAlign.center, softWrap: true)
             ],
