@@ -1,8 +1,9 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_neumorphic/flutter_neumorphic.dart';
+
 import 'package:crdb_simbanking/data/data.dart';
 import 'package:crdb_simbanking/widgets/circle_shape.dart';
 import 'package:crdb_simbanking/widgets/tabs_section.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
 class MaelezoScreen extends StatefulWidget {
   const MaelezoScreen({super.key});
@@ -112,44 +113,62 @@ class _MaelezoScreenState extends State<MaelezoScreen>
               ],
             ),
           ),
-          GridView.builder(
-              itemCount: akaunt.length,
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  mainAxisSpacing: 0,
-                  crossAxisSpacing: 0,
-                  mainAxisExtent: 120,
-                  crossAxisCount: 4),
-              shrinkWrap: true,
-              physics: const ScrollPhysics(),
-              itemBuilder: ((context, index) {
-                return Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    SizedBox(
-                      height: 75,
-                      width: 75,
-                      child: Neumorphic(
-                          style: NeumorphicStyle(
-                              shape: NeumorphicShape.convex,
-                              boxShape: NeumorphicBoxShape.roundRect(
-                                  BorderRadius.circular(20)),
-                              depth: 5,
-                              // intensity: 0.,
-                              lightSource: LightSource.topLeft,
-                              color: Color.fromRGBO(255, 255, 255, 0.303)),
-                          child: Icon(Icons.spa_rounded)),
-                    ),
-                    SizedBox(height: 8),
-                    Text(
-                      akaunt[index]['name'],
-                      textAlign: TextAlign.center,
-                      softWrap: true,
-                    )
-                  ],
-                );
-              }))
+          ServiceCard(
+            itemslength: akaunt.length,
+            itemslistIcon: akaunt.map((e) => e['icon']).toList(),
+            itemslistName: akaunt.map((e) => e['name']).toList(),
+          )
         ],
       ),
     );
+  }
+}
+
+class ServiceCard extends StatelessWidget {
+  final int itemslength;
+  final List? itemslistIcon;
+  final List? itemslistName;
+  const ServiceCard({
+    Key? key,
+    required this.itemslength,
+    this.itemslistIcon,
+    this.itemslistName,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return GridView.builder(
+        itemCount: itemslength,
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            mainAxisSpacing: 0,
+            crossAxisSpacing: 0,
+            mainAxisExtent: 120,
+            crossAxisCount: 4),
+        shrinkWrap: true,
+        physics: const ScrollPhysics(),
+        itemBuilder: ((context, index) {
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              SizedBox(
+                height: 75,
+                width: 75,
+                child: Neumorphic(
+                    style: NeumorphicStyle(
+                        shape: NeumorphicShape.convex,
+                        boxShape: NeumorphicBoxShape.roundRect(
+                            BorderRadius.circular(20)),
+                        depth: 5,
+                        // intensity: 0.,
+                        lightSource: LightSource.topLeft,
+                        color: const Color.fromRGBO(255, 255, 255, 0.303)),
+                    child: itemslistIcon![index]),
+              ),
+              SizedBox(height: 8),
+              Text(itemslistName![index],
+                  textAlign: TextAlign.center, softWrap: true)
+            ],
+          );
+        }));
   }
 }
