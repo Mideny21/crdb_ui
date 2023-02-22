@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
 import 'package:crdb_simbanking/data/data.dart';
-import 'package:crdb_simbanking/widgets/circle_shape.dart';
 import 'package:crdb_simbanking/widgets/tabs_section.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MaelezoScreen extends StatefulWidget {
   const MaelezoScreen({super.key});
@@ -42,9 +42,7 @@ class _MaelezoScreenState extends State<MaelezoScreen>
       padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 12),
       child: ListView(
         children: [
-          SizedBox(
-            height: 5,
-          ),
+          SizedBox(height: 5),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -85,41 +83,79 @@ class _MaelezoScreenState extends State<MaelezoScreen>
               firstab: 'AKAUNTI',
               secondtab: 'KADI',
               thirdtab: 'MIKOPO'),
-          const SizedBox(height: 20),
+          SizedBox(height: 28.h),
           SizedBox(
-            height: 260,
+            height: 350.h,
             child: PageView(
               physics: const NeverScrollableScrollPhysics(),
               controller: _pageController,
-              children: const [
-                CheckBalance(
-                  children: [
-                    Text("Hello"),
-                    Text("World"),
-                  ],
-                ),
-                CheckBalance(
-                  children: [
-                    Text("Hello"),
-                    Text("Kadi"),
-                  ],
-                ),
-                CheckBalance(
-                  children: [
-                    Text("Hello"),
-                    Text("Mikopo"),
-                  ],
-                ),
+              children: [
+                FirstView(),
+                FirstView(),
+                FirstView(),
               ],
             ),
           ),
-          ServiceCard(
-            itemslength: akaunt.length,
-            itemslistIcon: akaunt.map((e) => e['icon']).toList(),
-            itemslistName: akaunt.map((e) => e['name']).toList(),
-          )
         ],
       ),
+    );
+  }
+}
+
+class FirstView extends StatelessWidget {
+  const FirstView({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Stack(
+          children: [
+            Container(
+              height: 200.h,
+              width: MediaQuery.of(context).size.width * 0.5,
+              decoration: BoxDecoration(
+                  border: Border.all(color: Colors.green, width: 3),
+                  shape: BoxShape.circle),
+              child: Center(
+                child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text("Hlw World"),
+                      Text("Hlw World"),
+                    ]),
+              ),
+            ),
+            Positioned(
+                bottom: 5,
+                right: 0,
+                child: SizedBox(
+                  height: 55,
+                  width: 55,
+                  child: Neumorphic(
+                      style: NeumorphicStyle(
+                          shape: NeumorphicShape.convex,
+                          boxShape: NeumorphicBoxShape.roundRect(
+                              BorderRadius.circular(20)),
+                          depth: 4,
+                          intensity: 0.75,
+                          lightSource: LightSource.topLeft,
+                          color: Color.fromRGBO(255, 255, 255, 0.303)),
+                      child: const Icon(
+                        Icons.message_outlined,
+                      )),
+                ))
+          ],
+        ),
+        SizedBox(height: 30.h),
+        ServiceCard(
+          itemslength: akaunt.length,
+          itemslistIcon: akaunt.map((e) => e['icon']).toList(),
+          itemslistName: akaunt.map((e) => e['name']).toList(),
+        )
+      ],
     );
   }
 }
