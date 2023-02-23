@@ -61,7 +61,7 @@ class _TumaPesaScreenState extends State<TumaPesaScreen> {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('TUMA PESA'),
+              const Text('TUMA PESA'),
               SizedBox(height: 20.h),
               ServiceCard(
                 itemslength: akaunt.length,
@@ -71,14 +71,19 @@ class _TumaPesaScreenState extends State<TumaPesaScreen> {
             ],
           ),
           SizedBox(height: 20.h),
-          Center(
+          SizedBox(
+            height: MediaQuery.of(context).size.height * 0.35,
             child: Column(
-              mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Icon(Icons.star),
+                SizedBox(height: 10.h),
                 Text('Hakuna vipendwayo'),
-                Text('Hakuna vipendwayo'),
+                SizedBox(height: 10.h),
+                Text(
+                  'Mwishoni mwa muamala wako unaweza kumuongeza mpokeaji kwenye vipendavyo',
+                ),
               ],
             ),
           )
