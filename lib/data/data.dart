@@ -6,3 +6,21 @@ List<Map> akaunt = [
   {"name": "Muda wa Maongezi", "icon": Icon(Icons.report)},
   {"name": "LUKU", "icon": Icon(Icons.report)}
 ];
+
+List<Map> ads = [
+  {
+    "title": "LIPA HAPA",
+    "subtitle": "Fanya malipo kwa urahisi na hara kwa wafanyabishara",
+    "image": "assets/images/crdb.png"
+  },
+  {
+    "title": "LIPA HAPA",
+    "subtitle": "Fanya malipo kwa urahisi na hara kwa wafanyabishara",
+    "image": "assets/images/crdb.png"
+  },
+  {
+    "title": "LIPA HAPA",
+    "subtitle": "Fanya malipo kwa urahisi na hara kwa wafanyabishara",
+    "image": "assets/images/crdb.png"
+  },
+];

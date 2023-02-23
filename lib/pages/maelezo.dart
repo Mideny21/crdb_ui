@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:crdb_simbanking/data/data.dart';
 import 'package:crdb_simbanking/widgets/tabs_section.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MaelezoScreen extends StatefulWidget {
   const MaelezoScreen({super.key});
@@ -42,7 +42,7 @@ class _MaelezoScreenState extends State<MaelezoScreen>
       padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 12),
       child: ListView(
         children: [
-          SizedBox(height: 5),
+          const SizedBox(height: 5),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -85,7 +85,7 @@ class _MaelezoScreenState extends State<MaelezoScreen>
               thirdtab: 'MIKOPO'),
           SizedBox(height: 28.h),
           SizedBox(
-            height: 350.h,
+            height: 500.h,
             child: PageView(
               physics: const NeverScrollableScrollPhysics(),
               controller: _pageController,
@@ -96,7 +96,60 @@ class _MaelezoScreenState extends State<MaelezoScreen>
               ],
             ),
           ),
+          SizedBox(height: 8.h),
         ],
+      ),
+    );
+  }
+}
+
+class PromoBox extends StatelessWidget {
+  final String imageUrl;
+  final String title;
+  final String subtitle;
+  const PromoBox({
+    Key? key,
+    required this.imageUrl,
+    required this.title,
+    required this.subtitle,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 8).r,
+      child: Material(
+        elevation: 8,
+        child: Container(
+          width: MediaQuery.of(context).size.width - 40,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(1).r,
+          ),
+          child: Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
+            Expanded(
+              flex: 1,
+              child: Image.asset(imageUrl),
+            ),
+            SizedBox(width: 8.w),
+            Expanded(
+              flex: 2,
+              child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      title,
+                      style: TextStyle(
+                          fontSize: 13.sp,
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold),
+                    ),
+                    SizedBox(height: 5.h),
+                    Text(subtitle)
+                  ]),
+            )
+          ]),
+        ),
       ),
     );
   }
@@ -154,7 +207,21 @@ class FirstView extends StatelessWidget {
           itemslength: akaunt.length,
           itemslistIcon: akaunt.map((e) => e['icon']).toList(),
           itemslistName: akaunt.map((e) => e['name']).toList(),
-        )
+        ),
+        SizedBox(
+          height: 90.h,
+          child: ListView.builder(
+              shrinkWrap: true,
+              scrollDirection: Axis.horizontal,
+              itemCount: ads.length,
+              itemBuilder: (context, index) {
+                return PromoBox(
+                  imageUrl: ads[index]['image'],
+                  title: ads[index]['title'],
+                  subtitle: ads[index]['subtitle'],
+                );
+              }),
+        ),
       ],
     );
   }
