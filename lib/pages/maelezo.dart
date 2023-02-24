@@ -79,10 +79,9 @@ class _MaelezoScreenState extends State<MaelezoScreen>
           ),
           const SizedBox(height: 18),
           TabsSection(
-              controller: _tabController,
-              firstab: 'AKAUNTI',
-              secondtab: 'KADI',
-              thirdtab: 'MIKOPO'),
+            controller: _tabController,
+            tabs: ['AKAUNTI', 'KADI', 'MIKOPO'],
+          ),
           SizedBox(height: 28.h),
           SizedBox(
             height: 500.h,
