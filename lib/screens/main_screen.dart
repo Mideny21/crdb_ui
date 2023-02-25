@@ -22,20 +22,19 @@ class _MainsScreenState extends State<MainsScreen> {
     });
   }
 
-  final List<Widget> pages = [
-    const MaelezoScreen(),
-    const TumaPesaScreen(),
-    const ToaPesaScreen(),
-    const MalipoScreen(),
-    const MipangilioScreen()
-    // Container()
+  static const List<Widget> pages = [
+    MaelezoScreen(),
+    TumaPesaScreen(),
+    ToaPesaScreen(),
+    MalipoScreen(),
+    MipangilioScreen()
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white70.withOpacity(0.8),
-      body: IndexedStack(index: _selectedIndex, children: pages),
+      backgroundColor: Colors.grey.shade300,
+      body: Center(child: pages.elementAt(_selectedIndex)),
       bottomNavigationBar: BottomNavigationBar(
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(

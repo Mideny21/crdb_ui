@@ -18,7 +18,6 @@ class _TumaPesaScreenState extends State<TumaPesaScreen> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 10).r,
       child: ListView(
-        shrinkWrap: true,
         children: [
           SearchBar(title: "Tafuta mpokeaji"),
           SizedBox(height: 20.h),

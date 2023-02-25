@@ -69,7 +69,6 @@ class _MipangilioScreenState extends State<MipangilioScreen> {
                 icon: Icons.dark_mode_outlined,
                 tileTitle: "Dark mode"),
           ]),
-          SizedBox(height: 12.h),
           MipangilioUI(notitle: true, title: "", tile: [
             MipangilioTile(
                 icon: Icons.close, tileTitle: "Ondoa usajili wa kifaa"),
