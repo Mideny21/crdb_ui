@@ -4,10 +4,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class MipangilioUI extends StatelessWidget {
   final String title;
   final List<MipangilioTile> tile;
+  final bool notitle;
   const MipangilioUI({
     Key? key,
     this.title = '',
     required this.tile,
+    this.notitle = false,
   }) : super(key: key);
 
   @override
@@ -16,19 +18,21 @@ class MipangilioUI extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Container(
-              height: MediaQuery.of(context).size.height * 0.055,
-              width: MediaQuery.of(context).size.width * 1.0,
-              color: Colors.transparent,
-              child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10),
-                child: Text(
-                  title,
-                  style: const TextStyle(
-                      fontSize: 18, fontWeight: FontWeight.w500),
-                ),
-              )),
+          !notitle
+              ? SizedBox(
+                  height: 42.h,
+                  width: MediaQuery.of(context).size.width * 1.0,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                            horizontal: 10.0, vertical: 10)
+                        .r,
+                    child: Text(
+                      title,
+                      style: TextStyle(
+                          fontSize: 15.sp, fontWeight: FontWeight.w500),
+                    ),
+                  ))
+              : Container(),
           ...tile
         ]);
   }
@@ -50,23 +54,26 @@ class MipangilioTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const bool isOn = true;
     return Padding(
-      padding: const EdgeInsets.all(3).r,
+      padding: const EdgeInsets.symmetric(vertical: 5).r,
       child: ListTile(
         tileColor: Colors.white,
-        shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(10))),
-        leading: Icon(icon),
+        shape: RoundedRectangleBorder(
+            borderRadius: const BorderRadius.all(Radius.circular(8)).r),
+        leading: Icon(icon, size: 25.sp),
         title: Text(
           tileTitle,
           style: TextStyle(
               fontSize: 18, fontWeight: FontWeight.w400, color: titleColor),
         ),
         trailing: isIcon
-            ? const Icon(Icons.arrow_right, color: Colors.grey)
-            : const Switch(
-                activeColor: Colors.green, value: isOn, onChanged: null),
+            ? Icon(Icons.arrow_right, color: Colors.grey, size: 24.sp)
+            : Switch(
+                inactiveThumbColor: Colors.red,
+                inactiveTrackColor: Colors.red[400],
+                activeColor: Colors.green,
+                value: false,
+                onChanged: null),
       ),
     );
   }

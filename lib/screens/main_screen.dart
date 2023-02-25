@@ -4,6 +4,7 @@ import 'package:crdb_simbanking/pages/mipangilio.dart';
 import 'package:crdb_simbanking/pages/toa_pesa.dart';
 import 'package:crdb_simbanking/pages/tuma_pesa.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MainsScreen extends StatefulWidget {
   const MainsScreen({super.key});
@@ -26,7 +27,8 @@ class _MainsScreenState extends State<MainsScreen> {
     const TumaPesaScreen(),
     const ToaPesaScreen(),
     const MalipoScreen(),
-    const MipangilioScreen(),
+    const MipangilioScreen()
+    // Container()
   ];
 
   @override
@@ -37,11 +39,11 @@ class _MainsScreenState extends State<MainsScreen> {
       bottomNavigationBar: BottomNavigationBar(
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: Icon(Icons.wallet_outlined),
             label: 'Maelezo',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.add_box_outlined),
+            icon: Icon(Icons.swap_horiz_outlined),
             label: 'Tuma Pesa',
           ),
           BottomNavigationBarItem(
@@ -53,7 +55,7 @@ class _MainsScreenState extends State<MainsScreen> {
             label: 'Malipo',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
+            icon: Icon(Icons.settings_outlined),
             label: 'Mipangilio',
           ),
         ],
@@ -65,16 +67,12 @@ class _MainsScreenState extends State<MainsScreen> {
         unselectedFontSize: 15.0,
         showSelectedLabels: true,
         showUnselectedLabels: true,
-        unselectedLabelStyle: const TextStyle(color: Colors.white),
+        unselectedLabelStyle: TextStyle(fontSize: 12.sp, color: Colors.white),
         backgroundColor: Colors.transparent,
         selectedIconTheme: const IconThemeData(color: Colors.green),
         type: BottomNavigationBarType.fixed,
         selectedItemColor: Colors.green,
-        selectedLabelStyle: const TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 15,
-            letterSpacing: 0.8,
-            color: Colors.white),
+        selectedLabelStyle: TextStyle(fontSize: 12.sp, color: Colors.white),
         unselectedIconTheme: const IconThemeData(color: Colors.black),
         unselectedItemColor: Colors.black,
       ),
