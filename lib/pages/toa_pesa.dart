@@ -1,3 +1,4 @@
+import 'package:crdb_simbanking/pages/maelezo.dart';
 import 'package:crdb_simbanking/widgets/custom_button.dart';
 import 'package:crdb_simbanking/widgets/tabs_section.dart';
 import 'package:flutter/material.dart';
@@ -37,131 +38,131 @@ class _ToaPesaScreenState extends State<ToaPesaScreen>
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 8).r,
-      child: ListView(
-        children: [
-          const SizedBox(height: 5),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Row(
+    return SafeArea(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 8).r,
+        child: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  children: [
+                    const CircleAvatar(radius: 20, child: Icon(Icons.person)),
+                    const SizedBox(width: 10),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: const [
+                        Text("Habar Za mchana"),
+                        Text("Ndugu Mteja"),
+                      ],
+                    )
+                  ],
+                ),
+                CallCenter()
+              ],
+            ),
+            const SizedBox(height: 18),
+            TabsSection(
+              controller: _tabController,
+              tabs: ['Wakala/Tawi', 'ATM'],
+            ),
+            SizedBox(height: 20.h),
+            Expanded(
+              flex: 1,
+              child: Row(
                 children: [
-                  const CircleAvatar(radius: 20, child: Icon(Icons.person)),
-                  const SizedBox(width: 10),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
-                      Text("Habar Za mchana"),
-                      Text("Ndugu Mteja"),
-                    ],
-                  )
+                  Icon(Icons.info),
+                  Expanded(
+                    child: Text(
+                      "Tembelea Wakala wa CRDB au mhudumu wa tawi kutoa pesa bila kadi ya ATM",
+                      softWrap: true,
+                    ),
+                  ),
                 ],
               ),
-              SizedBox(
-                height: 55,
-                width: 55,
-                child: Neumorphic(
-                    style: NeumorphicStyle(
-                        shape: NeumorphicShape.convex,
-                        boxShape: NeumorphicBoxShape.roundRect(
-                            BorderRadius.circular(20)),
-                        depth: 4,
-                        intensity: 0.75,
-                        lightSource: LightSource.topLeft,
-                        color: Color.fromRGBO(255, 255, 255, 0.303)),
-                    child: const Icon(
-                      Icons.message_outlined,
-                    )),
-              )
-            ],
-          ),
-          const SizedBox(height: 18),
-          TabsSection(
-            controller: _tabController,
-            tabs: ['Wakala/Tawi', 'ATM'],
-          ),
-          SizedBox(height: 28.h),
-          Row(
-            children: [
-              Icon(Icons.info),
-              Expanded(
-                child: Text(
-                  "Tembelea Wakala wa CRDB au mhudumu wa tawi kutoa pesa bila kadi ya ATM",
-                  softWrap: true,
+            ),
+            Expanded(
+              flex: 1,
+              child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 8, vertical: 5).r,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text("Toa Kutoka"),
+                    SizedBox(height: 8.h),
+                    SizedBox(
+                      height: 45.h,
+                      child: Stack(
+                        children: [
+                          Positioned(
+                            left: 10,
+                            bottom: 0,
+                            top: 0,
+                            child: SizedBox(
+                                width: 20.w,
+                                child: const ColoredBox(color: Colors.green)),
+                          ),
+                          Container(
+                            child: TextField(
+                              decoration: InputDecoration(
+                                  border: InputBorder.none,
+                                  focusedBorder: InputBorder.none,
+                                  enabledBorder: InputBorder.none,
+                                  fillColor: Colors.white,
+                                  filled: true,
+                                  labelText: '0000087878989',
+                                  suffixIcon:
+                                      Icon(Icons.arrow_drop_down, size: 20.sp)),
+                            ),
+                          ),
+                        ],
+                      ),
+                    )
+                  ],
                 ),
               ),
-            ],
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 5).r,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text("Toa Kutoka"),
-                SizedBox(height: 8.h),
-                SizedBox(
-                  height: 45.h,
-                  child: Stack(
-                    children: [
-                      Positioned(
-                        left: 10,
-                        bottom: 0,
-                        top: 0,
-                        child: SizedBox(
-                            width: 20.w,
-                            child: ColoredBox(color: Colors.green)),
-                      ),
-                      Container(
-                        child: TextField(
+            ),
+            Expanded(
+              child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 8, vertical: 5).r,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text("Ingiza Kiasi"),
+                    SizedBox(height: 8.h),
+                    SizedBox(
+                      height: 45.h,
+                      child: TextField(
                           decoration: InputDecoration(
-                              border: InputBorder.none,
-                              focusedBorder: InputBorder.none,
-                              enabledBorder: InputBorder.none,
-                              fillColor: Colors.white,
-                              filled: true,
-                              labelText: '0000087878989',
-                              suffixIcon:
-                                  Icon(Icons.arrow_drop_down, size: 20.sp)),
-                        ),
-                      ),
-                    ],
-                  ),
-                )
-              ],
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 5).r,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Text("Ingiza Kiasi"),
-                SizedBox(height: 8.h),
-                SizedBox(
-                  height: 45.h,
-                  child: TextField(
-                      decoration: InputDecoration(
-                    border: InputBorder.none,
-                    focusedBorder: InputBorder.none,
-                    enabledBorder: InputBorder.none,
-                    fillColor: Colors.grey.withOpacity(0.8),
-                    filled: true,
-                    labelText: '',
-                  )),
+                        border: InputBorder.none,
+                        focusedBorder: InputBorder.none,
+                        enabledBorder: InputBorder.none,
+                        fillColor: Colors.grey.withOpacity(0.8),
+                        filled: true,
+                        labelText: '',
+                      )),
+                    ),
+                  ],
                 ),
-              ],
+              ),
             ),
-          ),
-          Text("Maelezo ya muamala (si lazima)"),
-          Row(
-            children: [
-              Icon(Icons.add),
-              Text("Ongeza maelezo"),
-            ],
-          ),
-          CustomButton(tap: () {}, text: 'ENDELEA', textColor: Colors.white)
-        ],
+            Container(),
+            Expanded(flex: 1, child: Text("Maelezo ya muamala (si lazima)")),
+            Expanded(
+              flex: 1,
+              child: Row(
+                children: [
+                  Icon(Icons.add),
+                  Text("Ongeza maelezo"),
+                ],
+              ),
+            ),
+            CustomButton(tap: () {}, text: 'ENDELEA', textColor: Colors.white),
+          ],
+        ),
       ),
     );
   }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MipangilioUI extends StatelessWidget {
@@ -56,24 +57,33 @@ class MipangilioTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 5).r,
-      child: ListTile(
-        tileColor: Colors.white,
-        shape: RoundedRectangleBorder(
-            borderRadius: const BorderRadius.all(Radius.circular(8)).r),
-        leading: Icon(icon, size: 25.sp),
-        title: Text(
-          tileTitle,
-          style: TextStyle(
-              fontSize: 18, fontWeight: FontWeight.w400, color: titleColor),
+      child: Neumorphic(
+        style: NeumorphicStyle(
+            shape: NeumorphicShape.convex,
+            boxShape: NeumorphicBoxShape.roundRect(BorderRadius.circular(6).r),
+            depth: 5,
+            // intensity: 0.,
+            lightSource: LightSource.top,
+            color: Colors.white),
+        child: ListTile(
+          tileColor: Colors.grey.shade200,
+          shape: RoundedRectangleBorder(
+              borderRadius: const BorderRadius.all(Radius.circular(6)).r),
+          leading: Icon(icon, size: 25.sp),
+          title: Text(
+            tileTitle,
+            style: TextStyle(
+                fontSize: 18, fontWeight: FontWeight.w400, color: titleColor),
+          ),
+          trailing: isIcon
+              ? Icon(Icons.arrow_right, color: Colors.grey, size: 24.sp)
+              : Switch(
+                  inactiveThumbColor: Colors.white,
+                  inactiveTrackColor: Colors.white,
+                  activeColor: Colors.green,
+                  value: false,
+                  onChanged: null),
         ),
-        trailing: isIcon
-            ? Icon(Icons.arrow_right, color: Colors.grey, size: 24.sp)
-            : Switch(
-                inactiveThumbColor: Colors.red,
-                inactiveTrackColor: Colors.red[400],
-                activeColor: Colors.green,
-                value: false,
-                onChanged: null),
       ),
     );
   }

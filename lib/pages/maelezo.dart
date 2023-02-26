@@ -1,3 +1,4 @@
+import 'package:crdb_simbanking/widgets/neumorphic.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -59,22 +60,7 @@ class _MaelezoScreenState extends State<MaelezoScreen>
                   )
                 ],
               ),
-              SizedBox(
-                height: 55,
-                width: 55,
-                child: Neumorphic(
-                    style: NeumorphicStyle(
-                        shape: NeumorphicShape.convex,
-                        boxShape: NeumorphicBoxShape.roundRect(
-                            BorderRadius.circular(20)),
-                        depth: 4,
-                        intensity: 0.75,
-                        lightSource: LightSource.topLeft,
-                        color: Color.fromRGBO(255, 255, 255, 0.303)),
-                    child: const Icon(
-                      Icons.message_outlined,
-                    )),
-              )
+              CallCenter()
             ],
           ),
           const SizedBox(height: 18),
@@ -98,6 +84,24 @@ class _MaelezoScreenState extends State<MaelezoScreen>
           SizedBox(height: 8.h),
         ],
       ),
+    );
+  }
+}
+
+class CallCenter extends StatelessWidget {
+  const CallCenter({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 40.h,
+      width: 40.w,
+      child: const NeumorphicWidget(
+          content: Icon(
+        Icons.message_outlined,
+      )),
     );
   }
 }
@@ -184,20 +188,10 @@ class FirstView extends StatelessWidget {
                 bottom: 5,
                 right: 0,
                 child: SizedBox(
-                  height: 55,
-                  width: 55,
-                  child: Neumorphic(
-                      style: NeumorphicStyle(
-                          shape: NeumorphicShape.convex,
-                          boxShape: NeumorphicBoxShape.roundRect(
-                              BorderRadius.circular(20)),
-                          depth: 4,
-                          intensity: 0.75,
-                          lightSource: LightSource.topLeft,
-                          color: Color.fromRGBO(255, 255, 255, 0.303)),
-                      child: const Icon(
-                        Icons.message_outlined,
-                      )),
+                  height: 45.h,
+                  width: 45.w,
+                  child:
+                      const NeumorphicWidget(content: Icon(Icons.visibility)),
                 ))
           ],
         ),
@@ -255,16 +249,9 @@ class ServiceCard extends StatelessWidget {
               SizedBox(
                 height: 75,
                 width: 75,
-                child: Neumorphic(
-                    style: NeumorphicStyle(
-                        shape: NeumorphicShape.convex,
-                        boxShape: NeumorphicBoxShape.roundRect(
-                            BorderRadius.circular(20)),
-                        depth: 5,
-                        // intensity: 0.,
-                        lightSource: LightSource.topLeft,
-                        color: Colors.white),
-                    child: itemslistIcon![index]),
+                child: NeumorphicWidget(
+                  content: itemslistIcon![index],
+                ),
               ),
               const SizedBox(height: 8),
               Text(itemslistName![index],

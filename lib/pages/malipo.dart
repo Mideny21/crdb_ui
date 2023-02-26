@@ -47,7 +47,7 @@ class DetailsRowPattern extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8).r,
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 10).r,
       child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
         Text(leftitle),
         Row(
