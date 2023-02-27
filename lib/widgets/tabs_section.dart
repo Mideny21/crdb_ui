@@ -1,4 +1,6 @@
+import 'package:crdb_simbanking/widgets/neumorphic.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class TabsSection extends StatelessWidget {
   final TabController? controller;
@@ -14,13 +16,13 @@ class TabsSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 50,
+      height: 45.h,
       decoration: BoxDecoration(
         color: Colors.grey.withOpacity(0.3),
         borderRadius: BorderRadius.circular(25),
       ),
       child: Padding(
-        padding: const EdgeInsets.all(4.0),
+        padding: const EdgeInsets.all(5.0).r,
         child: TabBar(
             controller: controller,
             indicator: BoxDecoration(

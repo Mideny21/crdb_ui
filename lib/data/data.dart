@@ -7,6 +7,13 @@ List<Map> akaunt = [
   {"name": "LUKU", "icon": Icon(Icons.report)}
 ];
 
+List<Map> kadi = [
+  {"name": "Zuia Kadi", "icon": Icon(Icons.report)},
+  {"name": "Omba kadi", "icon": Icon(Icons.report)},
+  {"name": "Taarifa ya kadi zilizoombwa", "icon": Icon(Icons.report)},
+  {"name": "Simama", "icon": Icon(Icons.report)}
+];
+
 List<Map> malipo = [
   {"name": "LUKU", "icon": Icon(Icons.report)},
   {"name": "Muda wa maongezi", "icon": Icon(Icons.report)},
@@ -27,16 +34,19 @@ List<Map> malipo = [
 
 List<Map> ads = [
   {
+    "heading": "MALIPO YA MFANYABIASHARA",
     "title": "LIPA HAPA",
     "subtitle": "Fanya malipo kwa urahisi na hara kwa wafanyabishara",
     "image": "assets/images/crdb.png"
   },
   {
+    "heading": "MALIPO YA MFANYABIASHARA",
     "title": "LIPA HAPA",
     "subtitle": "Fanya malipo kwa urahisi na hara kwa wafanyabishara",
     "image": "assets/images/crdb.png"
   },
   {
+    "heading": "MALIPO YA MFANYABIASHARA",
     "title": "LIPA HAPA",
     "subtitle": "Fanya malipo kwa urahisi na hara kwa wafanyabishara",
     "image": "assets/images/crdb.png"

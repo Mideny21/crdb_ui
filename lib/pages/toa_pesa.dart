@@ -149,18 +149,35 @@ class _ToaPesaScreenState extends State<ToaPesaScreen>
                 ),
               ),
             ),
-            Container(),
-            Expanded(flex: 1, child: Text("Maelezo ya muamala (si lazima)")),
+            Container(
+              height: 3.h,
+              width: 80.w,
+              color: Colors.green,
+            ),
             Expanded(
               flex: 1,
-              child: Row(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Icon(Icons.add),
-                  Text("Ongeza maelezo"),
+                  Text("Maelezo ya muamala (si lazima)"),
+                  Row(
+                    children: [
+                      Icon(Icons.add),
+                      Text("Ongeza maelezo"),
+                    ],
+                  ),
                 ],
               ),
             ),
-            CustomButton(tap: () {}, text: 'ENDELEA', textColor: Colors.white),
+            Expanded(
+              flex: 1,
+              child: Column(
+                children: [
+                  CustomButton(
+                      tap: () {}, text: 'ENDELEA', textColor: Colors.white),
+                ],
+              ),
+            ),
           ],
         ),
       ),

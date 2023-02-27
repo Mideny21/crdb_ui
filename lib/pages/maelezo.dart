@@ -1,9 +1,9 @@
-import 'package:crdb_simbanking/widgets/neumorphic.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:crdb_simbanking/data/data.dart';
+import 'package:crdb_simbanking/widgets/neumorphic.dart';
 import 'package:crdb_simbanking/widgets/tabs_section.dart';
 
 class MaelezoScreen extends StatefulWidget {
@@ -76,8 +76,8 @@ class _MaelezoScreenState extends State<MaelezoScreen>
               controller: _pageController,
               children: [
                 FirstView(),
-                FirstView(),
-                FirstView(),
+                KadiView(),
+                MikopoView(),
               ],
             ),
           ),
@@ -107,11 +107,13 @@ class CallCenter extends StatelessWidget {
 }
 
 class PromoBox extends StatelessWidget {
+  final String heading;
   final String imageUrl;
   final String title;
   final String subtitle;
   const PromoBox({
     Key? key,
+    required this.heading,
     required this.imageUrl,
     required this.title,
     required this.subtitle,
@@ -119,41 +121,61 @@ class PromoBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 8).r,
-      child: Material(
-        elevation: 8,
-        child: Container(
-          width: MediaQuery.of(context).size.width - 40,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(1).r,
-          ),
-          child: Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
-            Expanded(
-              flex: 1,
-              child: Image.asset(imageUrl),
-            ),
-            SizedBox(width: 8.w),
-            Expanded(
-              flex: 2,
-              child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      title,
-                      style: TextStyle(
-                          fontSize: 13.sp,
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold),
-                    ),
-                    SizedBox(height: 5.h),
-                    Text(subtitle)
-                  ]),
-            )
-          ]),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text(
+          heading,
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13.sp),
         ),
-      ),
+        SizedBox(height: 8.h),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 5.0).r,
+          child: NeumorphicWidget(
+            radius: 4,
+            content: Container(
+              height: 80.h,
+              width: MediaQuery.of(context).size.width - 50.w,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(1).r,
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0).r,
+                child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Expanded(
+                        flex: 1,
+                        child: Image.asset(
+                          imageUrl,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                      SizedBox(width: 8.w),
+                      Expanded(
+                        flex: 2,
+                        child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                title,
+                                style: TextStyle(
+                                    fontSize: 13.sp,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              SizedBox(height: 5.h),
+                              Text(subtitle)
+                            ]),
+                      )
+                    ]),
+              ),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
@@ -167,32 +189,29 @@ class FirstView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Stack(
-          children: [
-            Container(
-              height: 200.h,
-              width: MediaQuery.of(context).size.width * 0.5,
-              decoration: BoxDecoration(
-                  border: Border.all(color: Colors.green, width: 3),
-                  shape: BoxShape.circle),
-              child: Center(
-                child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text("Hlw World"),
-                      Text("Hlw World"),
-                    ]),
-              ),
+        CircleCard(
+          height: 155.h,
+          childs: [
+            const Text('00000444055330'),
+            SizedBox(height: 5.h),
+            const Text("Halisi"),
+            SizedBox(height: 5.h),
+            Text(
+              "*************",
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                  fontSize: 13.sp),
             ),
-            Positioned(
-                bottom: 5,
-                right: 0,
-                child: SizedBox(
-                  height: 45.h,
-                  width: 45.w,
-                  child:
-                      const NeumorphicWidget(content: Icon(Icons.visibility)),
-                ))
+            const Text("Inapatikana"),
+            SizedBox(height: 5.h),
+            Text(
+              "*************",
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                  fontSize: 13.sp),
+            ),
           ],
         ),
         SizedBox(height: 30.h),
@@ -201,14 +220,191 @@ class FirstView extends StatelessWidget {
           itemslistIcon: akaunt.map((e) => e['icon']).toList(),
           itemslistName: akaunt.map((e) => e['name']).toList(),
         ),
+        SizedBox(height: 30.h),
         SizedBox(
-          height: 90.h,
+          height: 140.h,
           child: ListView.builder(
               shrinkWrap: true,
               scrollDirection: Axis.horizontal,
               itemCount: ads.length,
               itemBuilder: (context, index) {
                 return PromoBox(
+                  heading: ads[index]['heading'],
+                  imageUrl: ads[index]['image'],
+                  title: ads[index]['title'],
+                  subtitle: ads[index]['subtitle'],
+                );
+              }),
+        ),
+      ],
+    );
+  }
+}
+
+class MikopoView extends StatelessWidget {
+  const MikopoView({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        CircleCard(
+          height: 180.h,
+          showOverlays: false,
+          color: Colors.white,
+          childs: [
+            Text(
+              "Get instant loan Advance",
+              style: TextStyle(
+                  fontWeight: FontWeight.w500,
+                  color: Colors.black,
+                  fontSize: 13.sp),
+            ),
+            SizedBox(height: 10.h),
+            Text(
+              "dsdkslnfnvkfsnslfnkvnfklnvkfssvssslsdk",
+              style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 14.sp),
+            )
+          ],
+        ),
+        SizedBox(height: 30.h),
+        ServiceCard(
+          itemslength: akaunt.length,
+          itemslistIcon: akaunt.map((e) => e['icon']).toList(),
+          itemslistName: akaunt.map((e) => e['name']).toList(),
+        ),
+        SizedBox(height: 8.h),
+        SizedBox(
+          height: 140.h,
+          child: ListView.builder(
+              shrinkWrap: true,
+              scrollDirection: Axis.horizontal,
+              itemCount: ads.length,
+              itemBuilder: (context, index) {
+                return PromoBox(
+                  heading: ads[index]['heading'],
+                  imageUrl: ads[index]['image'],
+                  title: ads[index]['title'],
+                  subtitle: ads[index]['subtitle'],
+                );
+              }),
+        ),
+      ],
+    );
+  }
+}
+
+class CircleCard extends StatelessWidget {
+  final Color color;
+  final bool showOverlays;
+  final List<Widget> childs;
+  final double height;
+  const CircleCard({
+    Key? key,
+    this.color = Colors.green,
+    this.showOverlays = true,
+    required this.childs,
+    required this.height,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      clipBehavior: Clip.none,
+      alignment: Alignment.center,
+      children: [
+        Container(
+          height: height,
+          width: MediaQuery.of(context).size.width * 0.5,
+          decoration: BoxDecoration(
+              border: Border.all(color: color, width: 5.w),
+              shape: BoxShape.circle),
+          child: Padding(
+            padding: const EdgeInsets.all(8.0).r,
+            child: Center(
+              child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: childs),
+            ),
+          ),
+        ),
+        showOverlays
+            ? Positioned(
+                bottom: -8,
+                right: 5,
+                child: SizedBox(
+                  height: 45.h,
+                  width: 45.w,
+                  child:
+                      const NeumorphicWidget(content: Icon(Icons.visibility)),
+                ))
+            : Container()
+      ],
+    );
+  }
+}
+
+class KadiView extends StatelessWidget {
+  const KadiView({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Stack(
+          clipBehavior: Clip.none,
+          children: [
+            Container(
+              height: 170.h,
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage('assets/images/crdb.png'))),
+            ),
+            Positioned(
+                bottom: -30,
+                right: 60,
+                child: SizedBox(
+                  height: 40.h,
+                  width: 40.w,
+                  child: NeumorphicWidget(
+                      color: Colors.grey.shade300,
+                      content: Icon(Icons.visibility)),
+                )),
+            Positioned(
+                bottom: -30,
+                right: 130,
+                child: SizedBox(
+                  height: 40.h,
+                  width: 40.w,
+                  child: NeumorphicWidget(
+                      color: Colors.grey.shade300,
+                      content: Icon(Icons.settings_outlined)),
+                ))
+          ],
+        ),
+        SizedBox(height: 50.h),
+        ServiceCard(
+          itemslength: kadi.length,
+          itemslistIcon: kadi.map((e) => e['icon']).toList(),
+          itemslistName: kadi.map((e) => e['name']).toList(),
+        ),
+        SizedBox(height: 10.h),
+        SizedBox(
+          height: 130.h,
+          child: ListView.builder(
+              shrinkWrap: true,
+              scrollDirection: Axis.horizontal,
+              itemCount: ads.length,
+              itemBuilder: (context, index) {
+                return PromoBox(
+                  heading: ads[index]['heading'],
                   imageUrl: ads[index]['image'],
                   title: ads[index]['title'],
                   subtitle: ads[index]['subtitle'],
