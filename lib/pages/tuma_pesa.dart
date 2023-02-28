@@ -22,6 +22,7 @@ class _TumaPesaScreenState extends State<TumaPesaScreen> {
         padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8).r,
         child: Column(
           children: [
+            SizedBox(height: 5.h),
             const SearchBar(title: "Tafuta mpokeaji"),
             SizedBox(height: 18.h),
             Expanded(

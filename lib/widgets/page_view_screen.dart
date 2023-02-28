@@ -49,7 +49,6 @@ class FirstView extends StatelessWidget {
           itemslistIcon: akaunt.map((e) => e['icon']).toList(),
           itemslistName: akaunt.map((e) => e['name']).toList(),
         ),
-        SizedBox(height: 30.h),
         SizedBox(
           height: 140.h,
           child: ListView.builder(
@@ -109,7 +108,6 @@ class MikopoView extends StatelessWidget {
           itemslistIcon: akaunt.map((e) => e['icon']).toList(),
           itemslistName: akaunt.map((e) => e['name']).toList(),
         ),
-        SizedBox(height: 8.h),
         SizedBox(
           height: 140.h,
           child: ListView.builder(
@@ -179,7 +177,6 @@ class KadiView extends StatelessWidget {
           itemslistIcon: kadi.map((e) => e['icon']).toList(),
           itemslistName: kadi.map((e) => e['name']).toList(),
         ),
-        SizedBox(height: 10.h),
         SizedBox(
           height: 130.h,
           child: ListView.builder(

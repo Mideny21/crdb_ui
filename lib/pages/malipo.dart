@@ -20,6 +20,7 @@ class _MalipoScreenState extends State<MalipoScreen> {
       padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 8).r,
       child: ListView(
         children: [
+          SizedBox(height: 5.h),
           const SearchBar(title: "Tafuta huduma"),
           DetailsRowPattern(
               leftitle: "MAKUNDI YA JUU", rightitle: "TAZAMA VYOTE"),

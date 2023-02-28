@@ -17,6 +17,7 @@ class _MipangilioScreenState extends State<MipangilioScreen> {
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8).r,
       child: ListView(
         children: [
+          SizedBox(height: 5.h),
           SizedBox(
             height: 80.h,
             child: Stack(
@@ -38,7 +39,7 @@ class _MipangilioScreenState extends State<MipangilioScreen> {
                       width: 35.w,
                       child: Neumorphic(
                           style: NeumorphicStyle(
-                              shape: NeumorphicShape.convex,
+                              shape: NeumorphicShape.flat,
                               boxShape: NeumorphicBoxShape.roundRect(
                                   BorderRadius.circular(20)),
                               depth: 4,

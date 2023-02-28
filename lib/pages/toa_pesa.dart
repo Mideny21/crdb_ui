@@ -46,9 +46,9 @@ class _ToaPesaScreenState extends State<ToaPesaScreen>
         padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 8).r,
         child: Column(
           children: [
-            const SizedBox(height: 5),
+            SizedBox(height: 5.h),
             TopGreetings(),
-            const SizedBox(height: 18),
+            SizedBox(height: 18.h),
             TabsSection(
               controller: _tabController,
               tabs: ['Wakala/Tawi', 'ATM'],
