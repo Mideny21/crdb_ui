@@ -48,7 +48,7 @@ class _MaelezoScreenState extends State<MaelezoScreen>
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 12),
+      padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 5),
       child: ListView(
         children: [
           const SizedBox(height: 5),

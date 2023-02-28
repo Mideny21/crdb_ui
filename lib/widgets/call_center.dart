@@ -12,10 +12,11 @@ class CallCenter extends StatelessWidget {
     return SizedBox(
       height: 40.h,
       width: 40.w,
-      child: const NeumorphicWidget(
+      child: NeumorphicWidget(
+          color: Colors.grey.shade100,
           content: Icon(
-        Icons.message_outlined,
-      )),
+            Icons.message_outlined,
+          )),
     );
   }
 }

@@ -1,3 +1,4 @@
+import 'package:crdb_simbanking/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
@@ -17,7 +18,7 @@ class CustomButton extends StatelessWidget {
       this.height = 48,
       this.fontSize = 16,
       this.textColor = Colors.blueGrey,
-      this.color = Colors.green})
+      this.color = AppColors.greenColor})
       : super(key: key);
 
   @override

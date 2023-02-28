@@ -59,12 +59,12 @@ class MipangilioTile extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 5).r,
       child: Neumorphic(
         style: NeumorphicStyle(
-            shape: NeumorphicShape.convex,
+            shape: NeumorphicShape.flat,
             boxShape: NeumorphicBoxShape.roundRect(BorderRadius.circular(6).r),
             depth: 5,
             // intensity: 0.,
             lightSource: LightSource.top,
-            color: Colors.white),
+            color: Colors.white38.withOpacity(0.9)),
         child: ListTile(
           tileColor: Colors.grey.shade200,
           shape: RoundedRectangleBorder(

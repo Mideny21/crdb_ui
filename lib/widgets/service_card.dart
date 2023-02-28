@@ -1,5 +1,6 @@
 import 'package:crdb_simbanking/widgets/neumorphic.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ServiceCard extends StatelessWidget {
   final int itemslength;
@@ -28,8 +29,8 @@ class ServiceCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               SizedBox(
-                height: 75,
-                width: 75,
+                height: 55.h,
+                width: 55.w,
                 child: NeumorphicWidget(
                   content: itemslistIcon![index],
                 ),

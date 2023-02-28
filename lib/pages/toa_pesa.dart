@@ -55,120 +55,269 @@ class _ToaPesaScreenState extends State<ToaPesaScreen>
             ),
             SizedBox(height: 20.h),
             Expanded(
-              flex: 1,
-              child: Row(
-                children: [
-                  Icon(Icons.info),
-                  Expanded(
-                    child: Text(
-                      "Tembelea Wakala wa CRDB au mhudumu wa tawi kutoa pesa bila kadi ya ATM",
-                      softWrap: true,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Expanded(
-              flex: 1,
-              child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 8, vertical: 5).r,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text("Toa Kutoka"),
-                    SizedBox(height: 8.h),
-                    SizedBox(
-                      height: 45.h,
-                      child: Stack(
-                        children: [
-                          Positioned(
-                            left: 10,
-                            bottom: 0,
-                            top: 0,
-                            child: SizedBox(
-                                width: 20.w,
-                                child: const ColoredBox(color: Colors.green)),
-                          ),
-                          Container(
-                            child: TextField(
-                              decoration: InputDecoration(
-                                  border: InputBorder.none,
-                                  focusedBorder: InputBorder.none,
-                                  enabledBorder: InputBorder.none,
-                                  fillColor: Colors.white,
-                                  filled: true,
-                                  labelText: '0000087878989',
-                                  suffixIcon:
-                                      Icon(Icons.arrow_drop_down, size: 20.sp)),
-                            ),
-                          ),
-                        ],
-                      ),
-                    )
-                  ],
-                ),
-              ),
-            ),
-            Expanded(
-              child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 8, vertical: 5).r,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Text("Ingiza Kiasi"),
-                    SizedBox(height: 8.h),
-                    SizedBox(
-                      height: 45.h,
-                      child: TextField(
-                          decoration: InputDecoration(
-                        border: InputBorder.none,
-                        focusedBorder: InputBorder.none,
-                        enabledBorder: InputBorder.none,
-                        fillColor: Colors.grey.withOpacity(0.8),
-                        filled: true,
-                        labelText: '',
-                      )),
-                    ),
-                  ],
-                ),
+              child: PageView(
+                physics: const NeverScrollableScrollPhysics(),
+                controller: _pageController,
+                children: [WakalaView(), ATMView()],
               ),
             ),
             SizedBox(height: 8.h),
-            CustomCrdbDIvider(
-              height: 4.h,
-              width: 80.w,
-              radius: 4,
-            ),
-            SizedBox(height: 14.h),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class WakalaView extends StatelessWidget {
+  const WakalaView({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Row(
+          children: [
+            Icon(Icons.info),
             Expanded(
-              flex: 1,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text("Maelezo ya muamala (si lazima)"),
-                  Row(
-                    children: [
-                      Icon(Icons.add),
-                      Text("Ongeza maelezo"),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-            Expanded(
-              flex: 1,
-              child: Column(
-                children: [
-                  CustomButton(
-                      tap: () {}, text: 'ENDELEA', textColor: Colors.white),
-                ],
+              child: Text(
+                "Tembelea Wakala wa CRDB au mhudumu wa tawi kutoa pesa bila kadi ya ATM",
+                softWrap: true,
               ),
             ),
           ],
         ),
-      ),
+        SizedBox(height: 10.h),
+        Expanded(
+          flex: 1,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 5).r,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text("Toa Kutoka"),
+                SizedBox(height: 8.h),
+                Stack(
+                  clipBehavior: Clip.none,
+                  alignment: Alignment.centerLeft,
+                  children: [
+                    TextField(
+                      decoration: InputDecoration(
+                          border: InputBorder.none,
+                          focusedBorder: InputBorder.none,
+                          enabledBorder: InputBorder.none,
+                          fillColor: Colors.white,
+                          filled: true,
+                          labelText: '0000087878989',
+                          suffixIcon: Icon(Icons.arrow_drop_down, size: 20.sp)),
+                    ),
+                    Positioned(
+                      left: 0,
+                      child: SizedBox(
+                          width: 6.w,
+                          height: 49.h,
+                          child: const ColoredBox(color: Colors.green)),
+                    ),
+                  ],
+                )
+              ],
+            ),
+          ),
+        ),
+        Expanded(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 5).r,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text("Ingiza Kiasi"),
+                SizedBox(height: 8.h),
+                SizedBox(
+                  height: 45.h,
+                  child: TextField(
+                      decoration: InputDecoration(
+                    border: InputBorder.none,
+                    focusedBorder: InputBorder.none,
+                    enabledBorder: InputBorder.none,
+                    fillColor: Colors.grey.withOpacity(0.8),
+                    filled: true,
+                    labelText: '',
+                  )),
+                ),
+              ],
+            ),
+          ),
+        ),
+        SizedBox(height: 8.h),
+        CustomCrdbDIvider(height: 4.h, width: 80.w, radius: 4),
+        SizedBox(height: 20.h),
+        Expanded(
+          flex: 1,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text("Maelezo ya muamala (si lazima)"),
+              Row(
+                children: [
+                  Icon(Icons.add),
+                  Text("Ongeza maelezo"),
+                ],
+              ),
+            ],
+          ),
+        ),
+        Expanded(
+          flex: 1,
+          child: Column(
+            children: [
+              CustomButton(
+                  tap: () {}, text: 'ENDELEA', textColor: Colors.white),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class ATMView extends StatelessWidget {
+  const ATMView({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Row(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Icon(Icons.info),
+            Expanded(
+              child: Text(
+                "Toa pesa kwenye ATM iliyo karibu nawe bila Tembo card",
+                softWrap: true,
+              ),
+            ),
+          ],
+        ),
+        SizedBox(height: 10.h),
+        Expanded(
+          flex: 1,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 0).r,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text("Toa Kutoka"),
+                SizedBox(height: 8.h),
+                Stack(
+                  clipBehavior: Clip.none,
+                  alignment: Alignment.centerLeft,
+                  children: [
+                    TextField(
+                      decoration: InputDecoration(
+                          border: InputBorder.none,
+                          focusedBorder: InputBorder.none,
+                          enabledBorder: InputBorder.none,
+                          fillColor: Colors.white,
+                          filled: true,
+                          labelText: '0000087878989',
+                          suffixIcon: Icon(Icons.arrow_drop_down, size: 20.sp)),
+                    ),
+                    Positioned(
+                      left: 0,
+                      child: SizedBox(
+                          width: 6.w,
+                          height: 49.h,
+                          child: const ColoredBox(color: Colors.green)),
+                    ),
+                  ],
+                )
+              ],
+            ),
+          ),
+        ),
+        SizedBox(height: 10.h),
+        Expanded(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 0).r,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text("Namba ya Simu"),
+                SizedBox(height: 8.h),
+                SizedBox(
+                  height: 45.h,
+                  child: TextField(
+                      decoration: InputDecoration(
+                          border: InputBorder.none,
+                          focusedBorder: InputBorder.none,
+                          enabledBorder: InputBorder.none,
+                          fillColor: Colors.grey.withOpacity(0.8),
+                          filled: true,
+                          labelText: '',
+                          suffixIcon: Icon(
+                            Icons.person_pin_outlined,
+                            color: Colors.black,
+                          ))),
+                ),
+              ],
+            ),
+          ),
+        ),
+        Expanded(
+          flex: 1,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 0).r,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text("Ingiza Kiasi"),
+                SizedBox(height: 8.h),
+                SizedBox(
+                  height: 45.h,
+                  child: TextField(
+                      decoration: InputDecoration(
+                    border: InputBorder.none,
+                    focusedBorder: InputBorder.none,
+                    enabledBorder: InputBorder.none,
+                    fillColor: Colors.grey.withOpacity(0.8),
+                    filled: true,
+                    labelText: '',
+                  )),
+                ),
+              ],
+            ),
+          ),
+        ),
+        SizedBox(height: 8.h),
+        CustomCrdbDIvider(height: 4.h, width: 80.w, radius: 4),
+        SizedBox(height: 20.h),
+        Expanded(
+          flex: 1,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text("Maelezo ya muamala (si lazima)"),
+              Row(
+                children: [
+                  Icon(Icons.add),
+                  Text("Ongeza maelezo"),
+                ],
+              ),
+            ],
+          ),
+        ),
+        Expanded(
+          flex: 1,
+          child: Column(
+            children: [
+              CustomButton(
+                  tap: () {}, text: 'ENDELEA', textColor: Colors.white),
+            ],
+          ),
+        ),
+      ],
     );
   }
 }

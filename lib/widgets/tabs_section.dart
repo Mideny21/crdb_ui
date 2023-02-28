@@ -1,3 +1,4 @@
+import 'package:crdb_simbanking/utils/colors.dart';
 import 'package:crdb_simbanking/widgets/neumorphic.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -28,9 +29,9 @@ class TabsSection extends StatelessWidget {
             indicator: BoxDecoration(
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.green.withOpacity(0.2),
-                    offset: Offset(-5.0, -5.0),
-                    blurRadius: 16.0,
+                    color: AppColors.greenColor,
+                    offset: Offset(0.0, 0.0),
+                    blurRadius: 0.0,
                   ),
                   BoxShadow(
                     color: Colors.black.withOpacity(0.2),

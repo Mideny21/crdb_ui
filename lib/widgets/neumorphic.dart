@@ -16,13 +16,13 @@ class NeumorphicWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Neumorphic(
         style: NeumorphicStyle(
-            shape: NeumorphicShape.convex,
+            shape: NeumorphicShape.flat,
             boxShape:
                 NeumorphicBoxShape.roundRect(BorderRadius.circular(radius)),
             depth: 5,
             // intensity: 0.,
-            lightSource: LightSource.left,
-            color: color),
+            lightSource: LightSource.top,
+            color: color.withOpacity(0.9)),
         child: content);
   }
 }
