@@ -1,6 +1,8 @@
 import 'package:crdb_simbanking/pages/maelezo.dart';
 import 'package:crdb_simbanking/widgets/call_center.dart';
 import 'package:crdb_simbanking/widgets/custom_button.dart';
+import 'package:crdb_simbanking/widgets/custom_divider.dart';
+import 'package:crdb_simbanking/widgets/greetings.dart';
 import 'package:crdb_simbanking/widgets/tabs_section.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
@@ -44,25 +46,8 @@ class _ToaPesaScreenState extends State<ToaPesaScreen>
         padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 8).r,
         child: Column(
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Row(
-                  children: [
-                    const CircleAvatar(radius: 20, child: Icon(Icons.person)),
-                    const SizedBox(width: 10),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
-                        Text("Habar Za mchana"),
-                        Text("Ndugu Mteja"),
-                      ],
-                    )
-                  ],
-                ),
-                CallCenter()
-              ],
-            ),
+            const SizedBox(height: 5),
+            TopGreetings(),
             const SizedBox(height: 18),
             TabsSection(
               controller: _tabController,
@@ -150,11 +135,13 @@ class _ToaPesaScreenState extends State<ToaPesaScreen>
                 ),
               ),
             ),
-            Container(
-              height: 3.h,
+            SizedBox(height: 8.h),
+            CustomCrdbDIvider(
+              height: 4.h,
               width: 80.w,
-              color: Colors.green,
+              radius: 4,
             ),
+            SizedBox(height: 14.h),
             Expanded(
               flex: 1,
               child: Column(

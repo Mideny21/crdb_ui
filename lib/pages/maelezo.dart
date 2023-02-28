@@ -2,6 +2,7 @@ import 'package:crdb_simbanking/utils/colors.dart';
 import 'package:crdb_simbanking/widgets/call_center.dart';
 import 'package:crdb_simbanking/widgets/circle_card.dart';
 import 'package:crdb_simbanking/widgets/custom_divider.dart';
+import 'package:crdb_simbanking/widgets/greetings.dart';
 import 'package:crdb_simbanking/widgets/page_view_screen.dart';
 import 'package:crdb_simbanking/widgets/promo_box.dart';
 import 'package:crdb_simbanking/widgets/service_card.dart';
@@ -51,25 +52,7 @@ class _MaelezoScreenState extends State<MaelezoScreen>
       child: ListView(
         children: [
           const SizedBox(height: 5),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Row(
-                children: [
-                  const CircleAvatar(radius: 20, child: Icon(Icons.person)),
-                  const SizedBox(width: 10),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
-                      Text("Habar Za mchana"),
-                      Text("Ndugu Mteja"),
-                    ],
-                  )
-                ],
-              ),
-              CallCenter()
-            ],
-          ),
+          TopGreetings(),
           const SizedBox(height: 18),
           TabsSection(
             controller: _tabController,
