@@ -21,7 +21,7 @@ class NeumorphicWidget extends StatelessWidget {
                 NeumorphicBoxShape.roundRect(BorderRadius.circular(radius)),
             depth: 5,
             // intensity: 0.,
-            lightSource: LightSource.top,
+            lightSource: LightSource.left,
             color: color),
         child: content);
   }

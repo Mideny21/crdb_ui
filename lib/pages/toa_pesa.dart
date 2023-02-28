@@ -1,4 +1,5 @@
 import 'package:crdb_simbanking/pages/maelezo.dart';
+import 'package:crdb_simbanking/widgets/call_center.dart';
 import 'package:crdb_simbanking/widgets/custom_button.dart';
 import 'package:crdb_simbanking/widgets/tabs_section.dart';
 import 'package:flutter/material.dart';

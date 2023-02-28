@@ -1,4 +1,5 @@
 import 'package:crdb_simbanking/widgets/neumorphic.dart';
+import 'package:crdb_simbanking/widgets/service_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -18,22 +19,22 @@ class _TumaPesaScreenState extends State<TumaPesaScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Padding(
-        padding: const EdgeInsets.all(8.0).r,
+        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8).r,
         child: Column(
           children: [
             const SearchBar(title: "Tafuta mpokeaji"),
-            SizedBox(height: 20.h),
+            SizedBox(height: 18.h),
             Expanded(
               flex: 1,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Text('TUMA PESA'),
-                  SizedBox(height: 15.h),
+                  SizedBox(height: 10.h),
                   ServiceCard(
-                    itemslength: akaunt.length,
-                    itemslistIcon: akaunt.map((e) => e['icon']).toList(),
-                    itemslistName: akaunt.map((e) => e['name']).toList(),
+                    itemslength: tumapesa.length,
+                    itemslistIcon: tumapesa.map((e) => e['icon']).toList(),
+                    itemslistName: tumapesa.map((e) => e['name']).toList(),
                   ),
                 ],
               ),

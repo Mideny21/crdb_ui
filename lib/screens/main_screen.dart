@@ -34,30 +34,45 @@ class _MainsScreenState extends State<MainsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.greyColor,
+      backgroundColor: Colors.grey.shade300,
       body: Center(child: pages.elementAt(_selectedIndex)),
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.all(8).r,
         child: BottomNavigationBar(
           items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
-              icon: Icon(Icons.wallet_outlined),
+              icon: Icon(
+                Icons.folder_copy_outlined,
+                size: 24.sp,
+              ),
               label: 'Maelezo',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.swap_horiz_outlined),
+              icon: Icon(
+                Icons.swap_horiz_outlined,
+                size: 24.sp,
+              ),
               label: 'Tuma Pesa',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.add_box_outlined),
+              icon: Icon(
+                Icons.card_membership_outlined,
+                size: 24.sp,
+              ),
               label: 'Toa Pesa',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.add_box_outlined),
+              icon: Icon(
+                Icons.business_center_outlined,
+                size: 24.sp,
+              ),
               label: 'Malipo',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.settings_outlined),
+              icon: Icon(
+                Icons.settings_outlined,
+                size: 24.sp,
+              ),
               label: 'Mipangilio',
             ),
           ],
