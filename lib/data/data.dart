@@ -185,7 +185,7 @@ List<Map> malipo = [
   {
     "name": "Bima",
     "icon": Icon(
-      Icons.report,
+      Icons.account_circle_outlined,
       size: 30.sp,
     )
   },
@@ -213,14 +213,14 @@ List<Map> malipo = [
   {
     "name": "Uwekezaji",
     "icon": Icon(
-      Icons.report,
+      Icons.trending_up_outlined,
       size: 30.sp,
     )
   },
   {
     "name": "Michezo",
     "icon": Icon(
-      Icons.report,
+      Icons.sports_esports_outlined,
       size: 30.sp,
     )
   },

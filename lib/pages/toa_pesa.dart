@@ -78,11 +78,16 @@ class WakalaView extends StatelessWidget {
       children: [
         Row(
           children: [
-            Icon(Icons.info),
             Expanded(
+              flex: 1,
+              child: Icon(Icons.info_outline, color: Colors.green, size: 24.sp),
+            ),
+            Expanded(
+              flex: 10,
               child: Text(
                 "Tembelea Wakala wa CRDB au mhudumu wa tawi kutoa pesa bila kadi ya ATM",
                 softWrap: true,
+                textAlign: TextAlign.justify,
               ),
             ),
           ],
@@ -114,7 +119,7 @@ class WakalaView extends StatelessWidget {
                     Positioned(
                       left: 0,
                       child: SizedBox(
-                          width: 6.w,
+                          width: 4.w,
                           height: 49.h,
                           child: const ColoredBox(color: Colors.green)),
                     ),
@@ -191,11 +196,16 @@ class ATMView extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Icon(Icons.info),
             Expanded(
+              flex: 1,
+              child: Icon(Icons.info_outline, color: Colors.green, size: 24.sp),
+            ),
+            Expanded(
+              flex: 10,
               child: Text(
                 "Toa pesa kwenye ATM iliyo karibu nawe bila Tembo card",
                 softWrap: true,
+                textAlign: TextAlign.justify,
               ),
             ),
           ],
@@ -227,7 +237,7 @@ class ATMView extends StatelessWidget {
                     Positioned(
                       left: 0,
                       child: SizedBox(
-                          width: 6.w,
+                          width: 4.w,
                           height: 49.h,
                           child: const ColoredBox(color: Colors.green)),
                     ),

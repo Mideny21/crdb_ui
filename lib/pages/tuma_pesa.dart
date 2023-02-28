@@ -47,13 +47,26 @@ class _TumaPesaScreenState extends State<TumaPesaScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Icon(Icons.star),
+                    Icon(Icons.star_outline,
+                        size: 40.sp, color: Colors.deepOrange),
                     SizedBox(height: 10.h),
-                    Text('Hakuna vipendwayo'),
-                    SizedBox(height: 10.h),
+                    Text(
+                      'Hakuna vipendwayo',
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 16.sp,
+                          letterSpacing: 0.8,
+                          color: Colors.deepOrange),
+                    ),
+                    SizedBox(height: 14.h),
                     Text(
                       'Mwishoni mwa muamala wako unaweza kumuongeza mpokeaji kwenye vipendavyo',
                       textAlign: TextAlign.center,
+                      style: TextStyle(
+                          fontWeight: FontWeight.w400,
+                          fontSize: 13.sp,
+                          letterSpacing: 0.5,
+                          color: Colors.deepOrange),
                     ),
                   ],
                 ),
