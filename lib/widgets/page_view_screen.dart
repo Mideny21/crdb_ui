@@ -144,13 +144,14 @@ class KadiView extends StatelessWidget {
           children: [
             Container(
               height: 170.h,
+              width: double.maxFinite,
               decoration: BoxDecoration(
                   image: DecorationImage(
-                      image: AssetImage('assets/images/crdb.png'))),
+                      image: AssetImage('assets/images/tembo.png'))),
             ),
             Positioned(
                 bottom: -30,
-                right: 60,
+                right: 50,
                 child: SizedBox(
                   height: 40.h,
                   width: 40.w,
@@ -160,7 +161,7 @@ class KadiView extends StatelessWidget {
                 )),
             Positioned(
                 bottom: -30,
-                right: 130,
+                right: 120,
                 child: SizedBox(
                   height: 40.h,
                   width: 40.w,
